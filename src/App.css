@@ -1,33 +1,85 @@
-.App {
-  text-align: center;
+body {
+  background-color: #172b4d;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+input {
+  background-color: #fff !important;
+  border-radius: 44px !important;
+  width: 90% !important;
+  padding: 0px 15px !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+input:focus {
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+label {
+  display: block;
+  color: #fff !important;
+  font-size: 1rem !important;
+}
+
+.calculate-btn {
+  background-color: #3f51b5;
+  padding: 15px 50px;
+  color: white;
+  font-size: 16px;
+  border-radius: 44px;
+  cursor: pointer;
+  border: 1px solid #3f51b5;
+  margin-bottom: 40px;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.2s ease;
+}
+
+.calculate-btn:hover {
+  background-color: #fff;
+  transform: translate(0px, -2px);
+  color: #5364c3;
+  box-shadow: 0px 15px 30px -12px rgba(255, 255, 255, 0.2);
+}
+
+.calculate-btn:focus {
+  background-color: #32408f;
+}
+
+.data-container {
+  background-color: #1f3a67;
+  border-radius: 11px;
+  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.card {
+  background-color: #274881 !important;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.card-title {
+  font-weight: 500 !important;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-data {
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-weight: 700;
+  padding: 5px 9px;
+  cursor: pointer;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+}
+
+.delete-btn:focus {
+  background-color: #e74c3c;
 }

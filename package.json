@@ -2,6 +2,7 @@
   "name": "bmical",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://GermaVinsmoke.github.io/bmi-calculator",
   "dependencies": {
     "chart.js": "^2.8.0",
     "materialize-css": "^1.0.0-rc.2",
@@ -13,17 +14,15 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

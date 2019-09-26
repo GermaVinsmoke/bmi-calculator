@@ -25,7 +25,9 @@ const Bar = ({ labelData, bmiData }) => {
             pointRadius: 6,
             pointHoverRadius: 8,
             pointHoverBorderColor: 'white',
-            pointHoverBorderWidth: 2
+            pointHoverBorderWidth: 2,
+            xAxisID: 'date',
+            yAxisID: 'BMI'
           }
         ]
       },

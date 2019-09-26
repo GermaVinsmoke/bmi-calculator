@@ -25,9 +25,7 @@ const Bar = ({ labelData, bmiData }) => {
             pointRadius: 6,
             pointHoverRadius: 8,
             pointHoverBorderColor: 'white',
-            pointHoverBorderWidth: 2,
-            xAxisID: 'date',
-            yAxisID: 'BMI'
+            pointHoverBorderWidth: 2
           }
         ]
       },
@@ -36,6 +34,10 @@ const Bar = ({ labelData, bmiData }) => {
         scales: {
           xAxes: [
             {
+              scaleLabel: {
+                display: true,
+                labelString: 'Date'
+              },
               gridLines: {
                 display: false,
                 color: 'white'
@@ -48,6 +50,10 @@ const Bar = ({ labelData, bmiData }) => {
           ],
           yAxes: [
             {
+              scaleLabel: {
+                display: true,
+                labelString: 'BMI'
+              },
               gridLines: {
                 display: false,
                 color: 'white'

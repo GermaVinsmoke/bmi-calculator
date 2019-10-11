@@ -36,7 +36,9 @@ const Bar = ({ labelData, bmiData }) => {
             {
               scaleLabel: {
                 display: true,
-                labelString: 'Date'
+                labelString: 'Date',
+                fontSize: 18,
+                fontColor: 'white'
               },
               gridLines: {
                 display: false,
@@ -52,7 +54,9 @@ const Bar = ({ labelData, bmiData }) => {
             {
               scaleLabel: {
                 display: true,
-                labelString: 'BMI'
+                labelString: 'BMI',
+                fontSize: 18,
+                fontColor: 'white'
               },
               gridLines: {
                 display: false,
@@ -60,7 +64,8 @@ const Bar = ({ labelData, bmiData }) => {
               },
               ticks: {
                 fontColor: 'white',
-                fontSize: 16
+                fontSize: 16,
+                beginAtZero: true
               }
             }
           ]

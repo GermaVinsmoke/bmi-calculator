@@ -44,6 +44,10 @@ label {
   background-color: #32408f;
 }
 
+.calculate-btn:focus:hover {
+  color: white;
+}
+
 .data-container {
   background-color: #1f3a67;
   border-radius: 11px;

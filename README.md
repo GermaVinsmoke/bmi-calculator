@@ -17,5 +17,4 @@ Created with _create-react-app_. See the [full create-react-app guide](https://g
 ## Enhancement
 
 1. Removing the dependency of Materialize-CSS module
-2. Adding the functionality of editing the weight and height
-3. Chart going crazy on hovering over the old points
+2. Chart going crazy on hovering over the old points

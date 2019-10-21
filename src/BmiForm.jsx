@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+const uuidv1 = require('uuid/v4');
 
 const BmiForm = ({ change }) => {
   const [state, setState] = useState({
@@ -20,6 +21,10 @@ const BmiForm = ({ change }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (state.weight === '' || state.height === '') return;
+    setState({
+      ...state,
+      id: uuidv1()
+    });
     change(state);
   };
 

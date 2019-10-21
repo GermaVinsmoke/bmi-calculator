@@ -1,5 +1,7 @@
 ## BMI Calculator
 
+[![Build Status](https://travis-ci.com/GermaVinsmoke/bmi-calculator.svg?branch=master)](https://travis-ci.com/GermaVinsmoke/bmi-calculator)
+
 React Hooks app to calculate the BMI of a person. It can store the data for 7 days with the help of LocalStorage.
 
 ![](images/1.jpg)
@@ -17,4 +19,5 @@ Created with _create-react-app_. See the [full create-react-app guide](https://g
 ## Enhancement
 
 1. Removing the dependency of Materialize-CSS module
-2. Chart going crazy on hovering over the old points
+
+~~2. Chart going crazy on hovering over the old points~~

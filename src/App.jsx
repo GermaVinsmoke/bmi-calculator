@@ -21,11 +21,16 @@ const App = () => {
   };
 
   const handleDelete = id => {
+    localStorage.setItem('lastState', JSON.stringify(state))
     let newState = state.filter(i => {
       return i.id !== id;
     });
     setState(newState);
   };
+
+  const handleUndo = function() {
+      setState(JSON.parse(localStorage.getItem('lastState')));
+  }
 
   useEffect(() => {
     localStorage.setItem('data', JSON.stringify(state));
@@ -62,6 +67,11 @@ const App = () => {
                   />
                 ))}
               </div>
+                {localStorage.getItem('lastState') !== null ? (
+                    <div className="center">
+                        <button className="calculate-btn" onClick={handleUndo}>Undo</button>
+                    </div>
+                ) : ('')}
             </div>
           ) : (
             ''

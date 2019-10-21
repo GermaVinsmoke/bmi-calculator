@@ -13,7 +13,6 @@ const App = () => {
   const handleChange = val => {
     let heightInM = val.height / 100;
     val.bmi = (val.weight / (heightInM * heightInM)).toFixed(2);
-    val.id = state.length;
     let newVal = [...state, val];
     let len = newVal.length;
     if (len > 7) newVal = newVal.slice(1, len);
@@ -21,17 +20,15 @@ const App = () => {
   };
 
   const handleDelete = id => {
-    localStorage.setItem('lastState', JSON.stringify(state))
+    localStorage.setItem('lastState', JSON.stringify(state));
     let newState = state.filter(i => {
       return i.id !== id;
     });
     setState(newState);
   };
-
-  const handleUndo = function() {
-      setState(JSON.parse(localStorage.getItem('lastState')));
-  }
-
+  const handleUndo = () => {
+    setState(JSON.parse(localStorage.getItem('lastState')));
+  };
   useEffect(() => {
     localStorage.setItem('data', JSON.stringify(state));
     const date = state.map(obj => obj.date);
@@ -67,11 +64,15 @@ const App = () => {
                   />
                 ))}
               </div>
-                {localStorage.getItem('lastState') !== null ? (
-                    <div className="center">
-                        <button className="calculate-btn" onClick={handleUndo}>Undo</button>
-                    </div>
-                ) : ('')}
+              {localStorage.getItem('lastState') !== null ? (
+                <div className="center">
+                  <button className="calculate-btn" onClick={handleUndo}>
+                    Undo
+                  </button>
+                </div>
+              ) : (
+                ''
+              )}
             </div>
           ) : (
             ''

@@ -38,6 +38,8 @@ const BmiForm = ({ change }) => {
             name="weight"
             type="tel"
             maxLength="3"
+            // min="1"
+            // max="999"
             placeholder="50"
             value={state.weight}
             onChange={handleChange}
@@ -51,6 +53,8 @@ const BmiForm = ({ change }) => {
             name="height"
             type="tel"
             maxLength="3"
+            // min="1"
+            // max="999"
             placeholder="176"
             value={state.height}
             onChange={handleChange}

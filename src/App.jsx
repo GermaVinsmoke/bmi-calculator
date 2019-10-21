@@ -64,15 +64,22 @@ const App = () => {
                   />
                 ))}
               </div>
-              {localStorage.getItem('lastState') !== null ? (
+            </div>
+          ) : (
+            <div>
+              <div className="row center">
+                <h4 className="white-text">7 Day Data</h4>
+              </div>
+              <div className="data-container row">
+              <div className="center white-text">No log found</div>
+              </div>
+            </div>
+          )}
+          {localStorage.getItem('lastState') !== null ? (
                     <div className="center">
                         <button className="calculate-btn" onClick={handleUndo}>Undo</button>
                     </div>
                 ) : ('')}
-            </div>
-          ) : (
-            ''
-          )}
         </div>
       </div>
     </div>

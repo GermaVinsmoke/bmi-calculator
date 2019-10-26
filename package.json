@@ -21,17 +21,14 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
+    "report-coverage": "cat ./coverage/lcov.info | codecov"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -39,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "codecov.io": "^0.1.6",
     "coveralls": "^3.0.7",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",

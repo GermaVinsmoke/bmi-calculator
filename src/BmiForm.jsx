@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-const uuidv1 = require('uuid/v4');
+import PropTypes from 'prop-types';
 
 const BmiForm = ({ change }) => {
   const [state, setState] = useState({
@@ -21,10 +21,6 @@ const BmiForm = ({ change }) => {
   const handleSubmit = e => {
     e.preventDefault();
     if (state.weight === '' || state.height === '') return;
-    setState({
-      ...state,
-      id: uuidv1()
-    });
     change(state);
   };
 
@@ -38,8 +34,6 @@ const BmiForm = ({ change }) => {
             name="weight"
             type="tel"
             maxLength="3"
-            // min="1"
-            // max="999"
             placeholder="50"
             value={state.weight}
             onChange={handleChange}
@@ -53,8 +47,6 @@ const BmiForm = ({ change }) => {
             name="height"
             type="tel"
             maxLength="3"
-            // min="1"
-            // max="999"
             placeholder="176"
             value={state.height}
             onChange={handleChange}
@@ -68,6 +60,10 @@ const BmiForm = ({ change }) => {
       </div>
     </form>
   );
+};
+
+BmiForm.propTypes = {
+  change: PropTypes.func.isRequired
 };
 
 export default BmiForm;

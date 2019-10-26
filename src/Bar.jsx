@@ -1,5 +1,6 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 
 const Bar = ({ labelData, bmiData }) => {
   const data = canvas => {
@@ -77,6 +78,11 @@ const Bar = ({ labelData, bmiData }) => {
       <Line data={data} options={options} />
     </>
   );
+};
+
+Bar.propTypes = {
+  labelData: PropTypes.array,
+  bmiData: PropTypes.array
 };
 
 export default Bar;

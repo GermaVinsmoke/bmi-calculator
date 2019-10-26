@@ -6,6 +6,7 @@
   "dependencies": {
     "chart.js": "^2.8.0",
     "materialize-css": "^1.0.0-rc.2",
+    "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.9.0",
@@ -18,17 +19,14 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
@@ -36,6 +34,10 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "coveralls": "^3.0.7",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "gh-pages": "^2.1.1",
+    "jest-enzyme": "^7.1.1"
   }
 }

@@ -48,6 +48,18 @@ label {
   color: white;
 }
 
+.calculate-btn:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: default;
+}
+
+.calculate-btn:disabled:hover {
+  box-shadow: none;
+  transform: translate(0, 0);
+}
+
 .data-container {
   background-color: #1f3a67;
   border-radius: 11px;

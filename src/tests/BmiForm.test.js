@@ -15,4 +15,12 @@ describe('BmiForm Component', () => {
   it('renders', () => {
     expect(wrapper).not.toBeNull();
   });
+
+  it('should return on empty weight or height', () => {
+    const setState = jest.fn();
+    const useStateSpy = jest.spyOn(React, 'useState');
+    useStateSpy.mockImplementation(init => [init, setState]);
+    wrapper.find('button').simulate('click');
+    expect(props.change).toHaveBeenCalledTimes(0);
+  });
 });

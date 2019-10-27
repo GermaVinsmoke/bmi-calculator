@@ -20,7 +20,7 @@ describe('BmiForm Component', () => {
     const setState = jest.fn();
     const useStateSpy = jest.spyOn(React, 'useState');
     useStateSpy.mockImplementation(init => [init, setState]);
-    wrapper.find('button').simulate('click');
+    wrapper.find('form').simulate('submit', { preventDefault() {} });
     expect(props.change).toHaveBeenCalledTimes(0);
   });
 });

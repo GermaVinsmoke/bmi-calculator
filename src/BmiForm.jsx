@@ -18,14 +18,12 @@ const BmiForm = ({ change }) => {
     });
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (state.weight === '' || state.height === '') return;
+  const handleSubmit = () => {
     change(state);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
       <div className="row">
         <div className="col m6 s12">
           <label htmlFor="weight">Weight (in kg)</label>
@@ -54,11 +52,16 @@ const BmiForm = ({ change }) => {
         </div>
       </div>
       <div className="center">
-        <button className="calculate-btn" type="submit">
+        <button
+          className="calculate-btn"
+          type="button"
+          disabled={state.weight === '' || state.height === ''}
+          onClick={handleSubmit}
+        >
           Calculate BMI
         </button>
       </div>
-    </form>
+    </>
   );
 };
 

@@ -1,6 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Bar from '../Bar';
+
+jest.mock('react-chartjs-2', () => ({
+  Line: () => null
+}));
 
 describe('Bar component', () => {
   let wrapper;
@@ -9,12 +13,8 @@ describe('Bar component', () => {
     bmiData: ['16.14']
   };
 
-  jest.mock('react-chartjs-2', () => ({
-    Line: () => null
-  }));
-
   beforeEach(() => {
-    wrapper = shallow(<Bar {...prop} />);
+    wrapper = mount(<Bar {...prop} />);
   });
 
   it('renders', () => {

@@ -9,6 +9,10 @@ describe('Bar component', () => {
     bmiData: ['16.14']
   };
 
+  jest.mock('react-chartjs-2', () => ({
+    Line: () => null
+  }));
+
   beforeEach(() => {
     wrapper = shallow(<Bar {...prop} />);
   });

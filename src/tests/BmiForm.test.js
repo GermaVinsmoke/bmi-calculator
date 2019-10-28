@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import BmiForm from '../BmiForm';
 
 describe('BmiForm Component', () => {
@@ -16,19 +16,7 @@ describe('BmiForm Component', () => {
     expect(wrapper).not.toBeNull();
   });
 
-  //   it('should return on empty weight or height', () => {
-  //     const setState = jest.fn();
-  //     const useStateSpy = jest.spyOn(React, 'useState');
-  //     useStateSpy.mockImplementation(init => [init, setState]);
-  //     wrapper.find('form').simulate('submit', { preventDefault() {} });
-  //     expect(prop.change).toHaveBeenCalledTimes(0);
-  //   });
-
   it('should update the weight', () => {
-    // const setState = jest.fn();
-    // const useStateSpy = jest.spyOn(React, 'useState');
-    // useStateSpy.mockImplementation(init => [init, setState]);
-
     const weight = wrapper.find('#weight');
     weight.simulate('change', { target: { name: 'weight', value: '50' } });
     expect(wrapper.find('#weight').props().value).toEqual('50');
@@ -41,13 +29,6 @@ describe('BmiForm Component', () => {
   });
 
   it('should call change', () => {
-    // const realUseState = React.useState;
-    // const stubData = [{ weight: '50', height: '176', date: '27/10/2019' }];
-
-    // jest
-    //   .spyOn(React, 'useState')
-    //   .mockImplementationOnce(() => realUseState(stubData));
-
     wrapper.find('button').simulate('click');
     expect(prop.change).toHaveBeenCalledTimes(1);
   });

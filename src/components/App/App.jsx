@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import BmiForm from './BmiForm';
-import Info from './Info';
-import Bar from './Bar';
-import './App.css';
-import 'materialize-css/dist/css/materialize.min.css';
-const uuidv1 = require('uuid/v4');
+import React, { useState, useEffect } from "react";
+import BmiForm from "../BmiForm/BmiForm";
+import Info from "../Info/Info";
+import Bar from "../Bar/Bar";
+import "./App.css";
+import "materialize-css/dist/css/materialize.min.css";
+const uuidv1 = require("uuid/v4");
 
 const App = () => {
-  let initialState = () => JSON.parse(localStorage.getItem('data')) || [];
+  let initialState = () => JSON.parse(localStorage.getItem("data")) || [];
   const [state, setState] = useState(initialState);
   const [data, setData] = useState({});
 
@@ -22,17 +22,17 @@ const App = () => {
   };
 
   const handleDelete = id => {
-    localStorage.setItem('lastState', JSON.stringify(state));
+    localStorage.setItem("lastState", JSON.stringify(state));
     let newState = state.filter(i => {
       return i.id !== id;
     });
     setState(newState);
   };
   const handleUndo = () => {
-    setState(JSON.parse(localStorage.getItem('lastState')));
+    setState(JSON.parse(localStorage.getItem("lastState")));
   };
   useEffect(() => {
-    localStorage.setItem('data', JSON.stringify(state));
+    localStorage.setItem("data", JSON.stringify(state));
     const date = state.map(obj => obj.date);
     const bmi = state.map(obj => obj.bmi);
     let newData = { date, bmi };
@@ -72,14 +72,14 @@ const App = () => {
               )}
             </div>
           </div>
-          {localStorage.getItem('lastState') !== null ? (
+          {localStorage.getItem("lastState") !== null ? (
             <div className="center">
               <button className="calculate-btn" onClick={handleUndo}>
                 Undo
               </button>
             </div>
           ) : (
-            ''
+            ""
           )}
         </div>
       </div>

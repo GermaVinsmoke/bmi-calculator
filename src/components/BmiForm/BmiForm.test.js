@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import BmiForm from "../src/components/BmiForm/BmiForm";
+import BmiForm from "./BmiForm";
 
 describe("BmiForm Component", () => {
   let wrapper;

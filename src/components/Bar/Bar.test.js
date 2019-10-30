@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import Bar from "../src/components/Bar/Bar";
+import Bar from "./Bar";
 
 jest.mock("react-chartjs-2", () => ({
   Line: () => null

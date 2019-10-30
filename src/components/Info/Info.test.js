@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow } from "enzyme";
-import Info from "../src/components/Info/Info";
+import Info from "./Info";
 
 describe("Info Component", () => {
   let wrapper;

@@ -20,6 +20,11 @@ const BmiForm = ({ change }) => {
 
   const handleSubmit = () => {
     change(state);
+    setState({
+      weight: '',
+      height: '',
+      date: ''
+    });
   };
 
   return (
@@ -53,6 +58,7 @@ const BmiForm = ({ change }) => {
       </div>
       <div className="center">
         <button
+          id="bmi-btn"
           className="calculate-btn"
           type="button"
           disabled={state.weight === '' || state.height === ''}

@@ -20,6 +20,6 @@ describe('Bar component', () => {
   it('renders', () => {
     expect(wrapper).not.toBeNull();
 
-    console.log(wrapper.debug());
+    console.log(wrapper.find('Line').props().data);
   });
 });

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import BmiForm from './BmiForm';
-import Info from './Info';
-import Bar from './Bar';
+import BmiForm from '../BmiForm/BmiForm';
+import Info from '../Info/Info';
+import Bar from '../Bar/Bar';
 import './App.css';
 import 'materialize-css/dist/css/materialize.min.css';
 const uuidv1 = require('uuid/v4');
@@ -40,19 +40,19 @@ const App = () => {
   }, [state]);
 
   return (
-    <div className="container">
-      <div className="row center">
-        <h1 className="white-text"> BMI Tracker </h1>
+    <div className='container'>
+      <div className='row center'>
+        <h1 className='white-text'> BMI Tracker </h1>
       </div>
-      <div className="row">
-        <div className="col m12 s12">
+      <div className='row'>
+        <div className='col m12 s12'>
           <BmiForm change={handleChange} />
           <Bar labelData={data.date} bmiData={data.bmi} />
           <div>
-            <div className="row center">
-              <h4 className="white-text">7 Day Data</h4>
+            <div className='row center'>
+              <h4 className='white-text'>7 Day Data</h4>
             </div>
-            <div className="data-container row">
+            <div className='data-container row'>
               {state.length > 0 ? (
                 <>
                   {state.map(info => (
@@ -68,13 +68,13 @@ const App = () => {
                   ))}
                 </>
               ) : (
-                <div className="center white-text">No log found</div>
+                <div className='center white-text'>No log found</div>
               )}
             </div>
           </div>
           {localStorage.getItem('lastState') !== null ? (
-            <div className="center">
-              <button className="calculate-btn" onClick={handleUndo}>
+            <div className='center'>
+              <button className='calculate-btn' onClick={handleUndo}>
                 Undo
               </button>
             </div>

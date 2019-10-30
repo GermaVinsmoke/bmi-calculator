@@ -4,15 +4,15 @@
   "private": true,
   "homepage": "http://GermaVinsmoke.github.io/bmi-calculator",
   "dependencies": {
-    "@types/jest": "^24.0.20",
-    "chart.js": "^2.8.0",
-    "materialize-css": "^1.0.0-rc.2",
-    "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-chartjs-2": "^2.8.0",
-    "react-dom": "^16.9.0",
+    "@types/jest": "24.0.20",
+    "chart.js": "2.9.1",
+    "materialize-css": "1.0.0",
+    "prop-types": "15.7.2",
+    "react": "16.11.0",
+    "react-chartjs-2": "2.8.0",
+    "react-dom": "16.11.0",
     "react-scripts": "3.1.1",
-    "uuid": "^3.3.3"
+    "uuid": "3.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,20 +26,13 @@
     "cypress": "cypress open"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/index.js"
-    ]
+    "collectCoverageFrom": ["src/**/*.{js,jsx}", "!src/index.js"]
   },
   "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
+    "production": [">0.2%", "not dead", "not op_mini all"],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",

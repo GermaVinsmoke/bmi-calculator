@@ -10,6 +10,11 @@ const BmiForm = ({ change }) => {
   });
 
   const handleChange = e => {
+    /////////
+    if(e.target.value>999){
+      e.target.value=999;
+    }
+    ////////
     const date = new Date().toLocaleString().split(",")[0];
     setState({
       ...state,
@@ -19,6 +24,7 @@ const BmiForm = ({ change }) => {
   };
 
   const handleSubmit = () => {
+
     change(state);
     setState({
       weight: '',
@@ -35,8 +41,11 @@ const BmiForm = ({ change }) => {
           <input
             id="weight"
             name="weight"
-            type="tel"
-            maxLength="3"
+            type="number"
+            /////////
+            min="1"
+            max="999"
+            //////////
             placeholder="50"
             value={state.weight}
             onChange={handleChange}
@@ -48,8 +57,11 @@ const BmiForm = ({ change }) => {
           <input
             id="height"
             name="height"
-            type="tel"
-            maxLength="3"
+            type="number"
+            /////////
+            min="1"
+            max="999"
+            //////////
             placeholder="176"
             value={state.height}
             onChange={handleChange}

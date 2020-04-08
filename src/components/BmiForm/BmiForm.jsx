@@ -10,13 +10,14 @@ const BmiForm = ({ change }) => {
 	});
 
 	const handleChange = e => {
-		if (e.target.value > 999) {
-			e.target.value = 999;
+		let { value, name } = e.target;
+		if (value > 999) {
+			value = 999;
 		}
 		const date = new Date().toLocaleString().split(',')[0];
 		setState({
 			...state,
-			[e.target.name]: e.target.value,
+			[name]: value,
 			date
 		});
 	};

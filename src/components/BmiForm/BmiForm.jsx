@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import '../App/App.css';
 import PropTypes from 'prop-types';
+import '../App/App.css';
+
+const initialValues = {
+	weight: '',
+	height: '',
+	date: ''
+}
 
 const BmiForm = ({ change }) => {
-	const [state, setState] = useState({
-		weight: '',
-		height: '',
-		date: ''
-	});
+	const [state, setState] = useState(initialValues);
 
 	const handleChange = e => {
 		let { value, name } = e.target;
@@ -24,11 +26,7 @@ const BmiForm = ({ change }) => {
 
 	const handleSubmit = () => {
 		change(state);
-		setState({
-			weight: '',
-			height: '',
-			date: ''
-		});
+		setState(initialValues);
 	};
 
 	return (

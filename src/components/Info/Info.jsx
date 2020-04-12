@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Info = ({ weight, height, id, date, bmi, deleteCard }) => {
-  const handleDelete = e => {
+  const handleDelete = () => {
     deleteCard(id);
   };
 

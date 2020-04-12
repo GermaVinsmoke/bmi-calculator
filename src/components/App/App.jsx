@@ -7,9 +7,17 @@ import Info from '../Info/Info';
 import Bar from '../Bar/Bar';
 
 const App = () => {
-  let initialState = () => JSON.parse(localStorage.getItem('data')) || [];
+  const initialState = () => JSON.parse(localStorage.getItem('data')) || [];
   const [state, setState] = useState(initialState);
   const [data, setData] = useState({});
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(state));
+    const date = state.map(obj => obj.date);
+    const bmi = state.map(obj => obj.bmi);
+    let newData = { date, bmi };
+    setData(newData);
+  }, [state]);
 
   const handleChange = val => {
     let heightInM = val.height / 100;
@@ -28,16 +36,10 @@ const App = () => {
     });
     setState(newState);
   };
+
   const handleUndo = () => {
     setState(JSON.parse(localStorage.getItem('lastState')));
   };
-  useEffect(() => {
-    localStorage.setItem('data', JSON.stringify(state));
-    const date = state.map(obj => obj.date);
-    const bmi = state.map(obj => obj.bmi);
-    let newData = { date, bmi };
-    setData(newData);
-  }, [state]);
 
   return (
     <div className='container'>

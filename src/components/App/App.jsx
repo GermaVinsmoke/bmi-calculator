@@ -5,6 +5,9 @@ import './App.css';
 import BmiForm from '../BmiForm/BmiForm';
 import Info from '../Info/Info';
 import Bar from '../Bar/Bar';
+import { getItem, storeItem } from '../../helpers/localStorage';
+console.log('getItem', getItem('data'));
+console.log('storeItem', storeItem);
 
 const App = () => {
   const initialState = () => JSON.parse(localStorage.getItem('data')) || [];

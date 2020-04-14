@@ -1,4 +1,4 @@
-export const getItem = (key) => {
+export const getData = (key) => {
 	if (!localStorage) return;
 
 	try {
@@ -8,7 +8,7 @@ export const getItem = (key) => {
 	}
 };
 
-export const storeItem = (key, item) => {
+export const storeData = (key, item) => {
 	if (!localStorage) return;
 
 	try {

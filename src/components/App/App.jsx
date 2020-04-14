@@ -10,8 +10,10 @@ console.log('getItem', getItem('data'));
 console.log('storeItem', storeItem);
 
 const App = () => {
-  const initialState = () => JSON.parse(localStorage.getItem('data')) || [];
+  const initialState = () => getItem('data') || [];
+  console.log('initialState', initialState);
   const [state, setState] = useState(initialState);
+  console.log('state', state);
   const [data, setData] = useState({});
 
   useEffect(() => {

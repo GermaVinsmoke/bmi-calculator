@@ -5,14 +5,15 @@ import './App.css';
 import BmiForm from '../BmiForm/BmiForm';
 import Info from '../Info/Info';
 import Bar from '../Bar/Bar';
+import { getData, storeData } from '../../helpers/localStorage';
 
 const App = () => {
-  const initialState = () => JSON.parse(localStorage.getItem('data')) || [];
+  const initialState = () => getData('data') || [];
   const [state, setState] = useState(initialState);
   const [data, setData] = useState({});
 
   useEffect(() => {
-    localStorage.setItem('data', JSON.stringify(state));
+    storeData('data', state);
     const date = state.map(obj => obj.date);
     const bmi = state.map(obj => obj.bmi);
     let newData = { date, bmi };
@@ -30,7 +31,7 @@ const App = () => {
   };
 
   const handleDelete = id => {
-    localStorage.setItem('lastState', JSON.stringify(state));
+    storeData('lastState', state);
     let newState = state.filter(i => {
       return i.id !== id;
     });
@@ -38,7 +39,7 @@ const App = () => {
   };
 
   const handleUndo = () => {
-    setState(JSON.parse(localStorage.getItem('lastState')));
+    setState(getData('lastState'));
   };
 
   return (
@@ -74,7 +75,7 @@ const App = () => {
                 )}
             </div>
           </div>
-          {localStorage.getItem('lastState') !== null ? (
+          {getData('lastState') !== null ? (
             <div className='center'>
               <button className='calculate-btn' onClick={handleUndo}>
                 Undo

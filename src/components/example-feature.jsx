@@ -6,7 +6,7 @@ const example = ({ change }) => {
 	return (
 		<>
 			<div>
-                <h1>Example</h1>
+                <h3>Example</h3>
             </div>
 		</>
 	);

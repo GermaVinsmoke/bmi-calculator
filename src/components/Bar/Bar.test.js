@@ -1,6 +1,7 @@
 import React from "react";
-import { mount } from "enzyme";
+import { mount, shallow } from "enzyme";
 import Bar from "./Bar";
+import { Line } from "react-chartjs-2";
 
 jest.mock("react-chartjs-2", () => ({
   Line: () => null
@@ -14,12 +15,16 @@ describe("Bar component", () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(<Bar {...prop} />);
+    wrapper = shallow(<Bar {...prop} />);
   });
 
   it("renders", () => {
     expect(wrapper).not.toBeNull();
 
     console.log(wrapper.debug());
+  });
+
+  it("renders Line component without crashing", () => {
+    shallow(<Line/>);
   });
 });

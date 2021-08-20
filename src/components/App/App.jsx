@@ -16,7 +16,7 @@ const App = () => {
     storeData('data', state);
     const date = state.map(obj => obj.date);
     const bmi = state.map(obj => obj.bmi);
-    let newData = { date, bmi};
+    let newData = { date, bmi };
     setData(newData);
   }, [state]);
 
@@ -24,22 +24,9 @@ const App = () => {
     let heightInM = val.height / 100;
     val.bmi = (val.weight / (heightInM * heightInM)).toFixed(2);
     val.id = uuidv4();
-    val.status = val.message;
-    val.message = ["Under Weight", "Normal Weight", "Over Weight", "Obese"];
     let newVal = [...state, val];
     let len = newVal.length;
     if (len > 7) newVal = newVal.slice(1, len);
-
-    if (val.bmi < 18.5) {
-      val.status=val.message[0];
-    }
-    else if (val.bmi >= 18.5 && val.bmi <= 24.9) {
-     val.status=val.message[1]
-  }
-  else if (val.bmi >= 25.0 && val.bmi <= 29.9) {
-  val.status=val.message[2];
-}else { val.status=val.message[3];
-  }
     setState(newVal);
   };
 
@@ -79,7 +66,6 @@ const App = () => {
                       height={info.height}
                       date={info.date}
                       bmi={info.bmi}
-                      status={info.status}
                       deleteCard={handleDelete}
                     />
                   ))}

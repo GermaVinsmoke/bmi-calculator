@@ -7,6 +7,7 @@ const initialValues = {
 	height: '',
 	date: ''
 }
+const restrictKeyList = ['-', '+'];
 
 const BmiForm = ({ change }) => {
 	const [state, setState] = useState(initialValues);
@@ -24,6 +25,11 @@ const BmiForm = ({ change }) => {
 		});
 	};
 
+	const filterInput = (e, restrictKeyList) => {
+		let isValidInput = restrictKeyList.some((key) => e.key === key);
+		if (isValidInput) e.preventDefault();
+	};
+
 	const handleSubmit = () => {
 		change(state);
 		setState(initialValues);
@@ -38,11 +44,12 @@ const BmiForm = ({ change }) => {
 						id="weight"
 						name="weight"
 						type="number"
-						min="1"
 						max="999"
+						min="1"
 						placeholder="50"
 						value={state.weight}
-						onChange={handleChange}
+						onChange={(e) => handleChange(e)}
+						onKeyDown={(e) => filterInput(e, restrictKeyList)}
 					/>
 				</div>
 
@@ -57,6 +64,7 @@ const BmiForm = ({ change }) => {
 						placeholder="176"
 						value={state.height}
 						onChange={handleChange}
+						onKeyDown={(e) => filterInput(e, restrictKeyList)}
 					/>
 				</div>
 			</div>
@@ -76,7 +84,7 @@ const BmiForm = ({ change }) => {
 };
 
 BmiForm.propTypes = {
-	change: PropTypes.func.isRequired
+	change: PropTypes.func.isRequired,
 };
 
 export default BmiForm;

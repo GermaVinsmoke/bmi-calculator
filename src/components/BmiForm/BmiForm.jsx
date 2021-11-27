@@ -5,9 +5,8 @@ import '../App/App.css';
 const initialValues = {
 	weight: '',
 	height: '',
-	date: '',
+	date: ''
 }
-
 const restrictKeyList = ['-', '+'];
 
 const BmiForm = ({ change }) => {
@@ -42,11 +41,11 @@ const BmiForm = ({ change }) => {
 				<div className="col m6 s12">
 					<label htmlFor="weight">Weight (in kg)</label>
 					<input
-						id="number1"
+						id="weight"
 						name="weight"
 						type="number"
-						max={999}
-						min={1}
+						max="999"
+						min="1"
 						placeholder="50"
 						value={state.weight}
 						onChange={(e) => handleChange(e)}

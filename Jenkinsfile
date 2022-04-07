@@ -31,8 +31,8 @@ pipeline {
             }
         }
         stage('Continuous integration') {
-            nodejs(nodeJSInstallationName: 'Node 16 LTS') {
-                stages {
+            stages {
+                nodejs(nodeJSInstallationName: 'Node 16 LTS') {
                     stage('Check node version and install dependencies') {
                         steps {
                             sh 'node --version'

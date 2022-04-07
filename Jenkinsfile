@@ -33,16 +33,16 @@ pipeline {
         stage('Continuous integration') {
             stages {
                 stage('Check node version and install dependencies') {
-                    nodejs(nodeJSInstallationName: 'Node 16 LTS') {
-                        steps {
+                    steps {
+                        nodejs(nodeJSInstallationName: 'Node 16 LTS') {
                             sh 'node --version'
                             sh 'npm install'
                         }
                     }
                 }
                 stage('Run tests') {
-                    nodejs(nodeJSInstallationName: 'Node 16 LTS') {
-                        steps {
+                    steps {
+                        nodejs(nodeJSInstallationName: 'Node 16 LTS') {
                             sh 'npm test'
                         }
                     }

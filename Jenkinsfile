@@ -25,8 +25,8 @@ pipeline {
         }
         stage('Quality Gate') {
             steps {
-                timeout(time: 1, unit: 'HOURS') {
-                    waitForQualityGate abortPipeline: true webhookSecretId: 'sonarqube-webhook-secret'
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true, webhookSecretId: 'sonarqube-webhook-secret'
                 }
             }
         }

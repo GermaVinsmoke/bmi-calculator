@@ -36,7 +36,7 @@ pipeline {
                     steps {
                         nodejs(nodeJSInstallationName: 'Node 16 LTS') {
                             sh 'node --version'
-                            sh 'npm install'
+                            sh 'yarn'
                         }
                     }
                 }

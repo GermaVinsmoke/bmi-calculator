@@ -44,7 +44,7 @@ pipeline {
                         -Dsonar.java.binaries=build/classes/java/ \
                         -Dsonar.projectKey=$PROJECT_NAME \
                         -Dsonar.java.coveragePlugin=cobertura \
-                        -Dsonar.cobertura.reportsPath=coverage-output/cobertura-coverage.xml \
+                        -Dsonar.flex.cobertura.reportPaths=coverage-output/cobertura-coverage.xml \
                         -Dsonar.sources=src'''
                     }
                 }

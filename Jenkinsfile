@@ -43,8 +43,7 @@ pipeline {
                         sh '''$SCANNER_HOME/bin/sonar-scanner -Dsonar.organization=$ORGANIZATION \
                         -Dsonar.java.binaries=build/classes/java/ \
                         -Dsonar.projectKey=$PROJECT_NAME \
-                        -Dsonar.java.coveragePlugin=cobertura \
-                        -Dsonar.flex.cobertura.reportPaths=coverage-output/cobertura-coverage.xml \
+                        -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
                         -Dsonar.sources=src'''
                     }
                 }

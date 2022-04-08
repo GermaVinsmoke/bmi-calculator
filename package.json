@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage=true --coverageDirectory=coverage-output --watchAll=false",
+    "test": "react-scripts test --coverage=true --watchAll=false",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -31,8 +31,7 @@
       "!src/index.js"
     ],
     "coverageReporters": [
-      "text",
-      "cobertura"
+      "lcov"
     ],
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"

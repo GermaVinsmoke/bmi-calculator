@@ -2,6 +2,20 @@ body {
   background-color: #172b4d;
 }
 
+.header-wrapper {
+	background: url('https://www.heart.org/-/media/Images/Healthy-Living/Fitness/BreakingDownBarriersFitness.jpg');
+	text-align: center;
+	width: 100%;
+	height: auto;
+	background-size: cover;
+	background-attachment: fixed;
+  background-position-y: 1300px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0 0 85% 85% / 30%;
+  margin-bottom: 30px;
+}
+
 input {
   background-color: #fff !important;
   border-radius: 44px !important;
@@ -99,3 +113,14 @@ label {
 .delete-btn:focus {
   background-color: #e74c3c;
 }
+
+.row-center {
+  width: 100%;
+	height: 100%;
+	padding: 30px;
+	color: #FFF;
+	text-shadow: 5px 5px 5px #333;
+  background-image: linear-gradient( 135deg, #51817069 10%, #470d686b 100%);
+
+}
+

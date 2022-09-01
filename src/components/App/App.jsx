@@ -44,8 +44,10 @@ const App = () => {
 
   return (
     <div className='container'>
-      <div className='row center'>
+      <div class='header-wrapper'>
+      <div class='row-center'>
         <h1 className='white-text'> BMI Tracker </h1>
+      </div>
       </div>
       <div className='row'>
         <div className='col m12 s12'>

@@ -1,5 +1,5 @@
 body {
-  background-color: #172b4d;
+  background-color: #0c1f40;
 }
 
 input {
@@ -21,13 +21,13 @@ label {
 }
 
 .calculate-btn {
-  background-color: #3f51b5;
+  background-color: #3144b3;
   padding: 15px 50px;
   color: white;
   font-size: 16px;
   border-radius: 44px;
   cursor: pointer;
-  border: 1px solid #3f51b5;
+  border: 1px solid #3144b3;
   margin-bottom: 40px;
   transform: translate3d(0, 0, 0);
   transition: all 0.2s ease;
@@ -41,7 +41,7 @@ label {
 }
 
 .calculate-btn:focus {
-  background-color: #32408f;
+  background-color: #3144b3;
 }
 
 .calculate-btn:focus:hover {

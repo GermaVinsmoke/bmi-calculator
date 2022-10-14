@@ -5,7 +5,7 @@ import './App.css';
 import BmiForm from '../BmiForm/BmiForm';
 import Info from '../Info/Info';
 import Bar from '../Bar/Bar';
-import { getData, storeData } from '../../helpers/localStorage';
+import { getData, removeLastState, storeData } from '../../helpers/localStorage';
 
 const App = () => {
   const initialState = () => getData('data') || [];
@@ -40,6 +40,7 @@ const App = () => {
 
   const handleUndo = () => {
     setState(getData('lastState'));
+    removeLastState();
   };
 
   return (
@@ -71,8 +72,8 @@ const App = () => {
                   ))}
                 </>
               ) : (
-                  <div className='center white-text'>No log found</div>
-                )}
+                <div className='center white-text'>No log found</div>
+              )}
             </div>
           </div>
           {getData('lastState') !== null ? (
@@ -82,8 +83,8 @@ const App = () => {
               </button>
             </div>
           ) : (
-              ''
-            )}
+            ''
+          )}
         </div>
       </div>
     </div>

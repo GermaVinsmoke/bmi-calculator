@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Info = ({ weight, height, id, date, bmi, deleteCard }) => {
+const Info = ({ info, deleteCard }) => {
+  const { weight, height, id, date, bmi } = info
   const handleDelete = () => {
     deleteCard(id);
   };

@@ -61,11 +61,7 @@ const App = () => {
                   {state.map(info => (
                     <Info
                       key={info.id}
-                      id={info.id}
-                      weight={info.weight}
-                      height={info.height}
-                      date={info.date}
-                      bmi={info.bmi}
+                      info={info}
                       deleteCard={handleDelete}
                     />
                   ))}

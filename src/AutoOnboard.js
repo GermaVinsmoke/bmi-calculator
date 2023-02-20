@@ -4,6 +4,7 @@ import styled from '@emotion/styled/macro';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faEye, faEyeSlash} from '@fortawesome/free-solid-svg-icons';
 import {getGlobal} from "reactn";
+import {getAuthToken} from "./service/requests";
 
 library.add(faEye, faEyeSlash);
 
@@ -13,7 +14,28 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 650px;
+  position:fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
 `;
+
+// Generic function to take form data and encode it for requests
+export const urlEncodeData = (data) => {
+    let urlEncodedData = '',
+        urlEncodedDataPairs = [];
+
+    for (let input of data) {
+        urlEncodedDataPairs.push(encodeURIComponent(input.key) + '=' + encodeURIComponent(input.value));
+    }
+
+    // Combine the pairs into a single string and replace all %-encoded spaces to
+    // the '+' character; matches the behavior of browser form submissions.
+    urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
+
+    return urlEncodedData;
+};
 
 export const AutoOnboard = () => {
     const baseURL = getGlobal('host');
@@ -96,21 +118,7 @@ export const AutoOnboard = () => {
         }
     }
 
-// Generic function to take form data and encode it for requests
-    const urlEncodeData = data => {
-        let urlEncodedData = '',
-            urlEncodedDataPairs = [];
 
-        for (let input of data) {
-            urlEncodedDataPairs.push(encodeURIComponent(input.key) + '=' + encodeURIComponent(input.value));
-        }
-
-        // Combine the pairs into a single string and replace all %-encoded spaces to
-        // the '+' character; matches the behavior of browser form submissions.
-        urlEncodedData = urlEncodedDataPairs.join('&').replace(/%20/g, '+');
-
-        return urlEncodedData;
-    }
 
 // GET request --- get oem list to populate oem dropdown
     async function getOemList() {
@@ -486,5 +494,5 @@ export const AutoOnboard = () => {
     document.getElementById('createDealer').addEventListener('click', event => {
         createDealer().then(r => {});
     });
-};
-
+}
+export default urlEncodeData;

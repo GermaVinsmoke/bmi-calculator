@@ -1,6 +1,8 @@
 import unfetch from 'unfetch';
 import {Switch, Route, Link, useRoute, Router} from "wouter";
 import {getGlobal, setGlobal} from "reactn";
+import urlEncodeData from "../AutoOnboard";
+
 export async function authenticate (email, password)
 {
     let response = await unfetch('/login', {
@@ -20,9 +22,11 @@ export async function authenticate (email, password)
     }
 }
 // Retrieve the authorization token for later use
-async function getAuthToken() {
+export async function getAuthToken() {
     let username = document.getElementById('username').value;
     let password = document.getElementById('password').value;
+    // TODO make dynamic
+    let baseURL = "localhost:3000";
     let url = baseURL + '/api/GetData/get_token';
     let data = [
         {key: 'username', value: username},
@@ -40,7 +44,10 @@ async function getAuthToken() {
     });
 
     let json = await response.json();
-    const authToken = setGlobal("authToken", json.token).then(r => {});;
-    const user_id = setGlobal("userID", json.user_id).then(r => {});
+    setGlobal("authToken", json.token).then(r => {});
+    setGlobal("userID", json.user_id).then(r => {});
 }
+
+
+export default getAuthToken();
 

@@ -1,35 +1,39 @@
 {
-  "name": "bmical",
+  "name": "prism-tool-client",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://GermaVinsmoke.github.io/bmi-calculator",
   "dependencies": {
-    "@types/jest": "24.0.20",
-    "chart.js": "2.9.1",
-    "materialize-css": "1.0.0",
-    "prop-types": "15.7.2",
-    "react": "16.11.0",
-    "react-chartjs-2": "2.8.0",
-    "react-dom": "16.11.0",
-    "react-scripts": "3.1.1",
-    "uuid": "3.3.3"
+    "@emotion/core": "^10.0.15",
+    "@emotion/css": "^11.10.6",
+    "@emotion/styled": "^10.0.15",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.19",
+    "@types/jest": "24.0.17",
+    "@types/node": "12.7.1",
+    "@types/react": "16.9.1",
+    "@types/react-dom": "16.8.5",
+    "bootstrap4": "^0.0.1-security",
+    "express": "^4.18.2",
+    "node": "^19.6.0",
+    "nvm": "^0.0.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "^5.0.1",
+    "reactn": "^2.2.7",
+    "redux-persist": "^6.0.0",
+    "typescript": "3.5.3",
+    "unfetch": "^4.1.0",
+    "wouter": "^2.10.0",
+    "yup": "^1.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "set SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "build": "set SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
-    "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "cypress": "cypress open"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!src/index.js"
-    ]
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,13 +51,7 @@
     ]
   },
   "devDependencies": {
-    "codecov.io": "^0.1.6",
-    "coveralls": "^3.0.11",
-    "cypress": "^3.8.3",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.2",
-    "eslint-plugin-cypress": "^2.10.3",
-    "gh-pages": "^2.2.0",
-    "jest-enzyme": "^7.1.2"
+    "@types/validator": "^10.11.2",
+    "@types/yup": "^0.26.22"
   }
 }

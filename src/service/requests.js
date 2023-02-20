@@ -1,7 +1,6 @@
 import unfetch from 'unfetch';
-import AppHub from "../containers/AppHub";
 import {Switch, Route, Link, useRoute, Router} from "wouter";
-
+import {getGlobal, setGlobal} from "reactn";
 export async function authenticate (email, password)
 {
     let response = await unfetch('/login', {
@@ -20,16 +19,28 @@ export async function authenticate (email, password)
         throw new Error(response.statusText)
     }
 }
+// Retrieve the authorization token for later use
+async function getAuthToken() {
+    let username = document.getElementById('username').value;
+    let password = document.getElementById('password').value;
+    let url = baseURL + '/api/GetData/get_token';
+    let data = [
+        {key: 'username', value: username},
+        {key: 'password', value: password}
+    ]
 
-export const login = () => {
+    let urlEncodedData = urlEncodeData(data);
 
-};
+    const response = await fetch(url, {
+        method: 'POST',
+        body: urlEncodedData,
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    });
 
-export async function updateState(response) {
-    const data = await response.json();
-    if (response.status === 200) GlobalUpdate.setNewestState(data);
-    else {
-        throw new Error(data.error)
-    }
+    let json = await response.json();
+    const authToken = setGlobal("authToken", json.token).then(r => {});;
+    const user_id = setGlobal("userID", json.user_id).then(r => {});
 }
 

@@ -1,16 +1,11 @@
 import React from "react";
-import {AppHubApps} from "src/components/AppHub/AppHubApps";
-import {Container} from "../App";
-const AppHub = () => {
-    return (
-        <Container>
-            <AppHubApps
-                applications={"PSXLink"}
-            />
-        </Container>
-    );
+import {Container} from "../AutoOnboard";
+import {AppHubApps} from "../components/AppHub/AppHubApps";
+export const AppHub = () => {
+    return <Container>
+        <AppHubApps
+            applications={"PSXLink"}
+        ></AppHubApps>
+    </Container>;
 };
-export default AppHub;
 
-export class AppHub {
-}

@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useSta, serifte, useState} from 'react';
 import styled from '@emotion/styled/macro';
-import css from '@emotion/css/macro'
+import '@emotion/css/macro';
 import * as yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { MessageBox } from './MessageBox';
 import { authenticate } from '../../service/requests';
+import {css} from "@emotion/css";
 
 const Form = styled.form`
-  font-family: Noto Sans JP;
+  font-family: Noto Sans JP,serif;
   width: 300px;
   background: #fff;
   padding: 40px;
@@ -109,7 +110,7 @@ export const SignInForm = () => {
             }
         };
 
-    export async function validate (values) {
+    const validate = async (values) => {
         const signInScheme = yup.object().shape({
             email: yup
                 .string()
@@ -123,7 +124,7 @@ export const SignInForm = () => {
         });
 
         try {
-            await signInScheme.validate(values, { abortEarly: false });
+            await signInScheme.validate(values, {abortEarly: false});
         } catch (error) {
             throw error;
         }
@@ -150,7 +151,7 @@ export const SignInForm = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [canSubmit]);
 
-    export const onSubmit = async (event) => {
+    const onSubmit = async (event) => {
         event.preventDefault();
 
         const formValues = {

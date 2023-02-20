@@ -12,7 +12,7 @@ export let Box = styled.div`
   font-size: 10px;
   margin: 20px 0;
 `;
-Box.style.color = BoxProps.status === 'success' ? 'black' : 'red';
+//Box.style.color = BoxProps.status === 'success' ? 'black' : 'red';
 
 export const MessageBox = () => {
     const messagesText = BoxProps.messages.map((message, index) => {

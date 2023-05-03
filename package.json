@@ -28,13 +28,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "cypress": "cypress open"
+    "cypress": "npx cypress run"
   },
   "jest": {
     "collectCoverageFrom": [

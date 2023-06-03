@@ -6,6 +6,7 @@ import BmiForm from '../BmiForm/BmiForm';
 import Info from '../Info/Info';
 import Bar from '../Bar/Bar';
 import { getData, storeData } from '../../helpers/localStorage';
+import axios from 'axios';
 
 const App = () => {
   const initialState = () => getData('data') || [];
@@ -20,9 +21,9 @@ const App = () => {
     setData(newData);
   }, [state]);
 
-  const handleChange = val => {
-    let heightInM = val.height / 100;
-    val.bmi = (val.weight / (heightInM * heightInM)).toFixed(2);
+  const handleChange = async val => {
+    const res = await axios.post('http://localhost:8080', val);
+    val.bmi = res.data.toString();
     val.id = uuidv4();
     let newVal = [...state, val];
     let len = newVal.length;

@@ -27,6 +27,7 @@ main();
 
 app.post('/', async (req, res) => {
   const data = req.body[req.body.length - 1];
+  console.log(data);
   if (data !== undefined) {
     try {
       const bmi = await BMI.create({

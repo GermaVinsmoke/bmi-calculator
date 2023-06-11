@@ -5,12 +5,19 @@ import './App.css';
 import BmiForm from '../BmiForm/BmiForm';
 import Info from '../Info/Info';
 import Bar from '../Bar/Bar';
-import { getData, storeData } from '../../helpers/localStorage';
+import { getData, storeData, getDataAxios } from '../../helpers/localStorage';
 import axios from 'axios';
 
 const App = () => {
-  const initialState = () => getData('data') || [];
-  const [state, setState] = useState(initialState);
+  const [state, setState] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const initialStateData = await getDataAxios('data');
+      setState(initialStateData || []);
+    };
+  
+    fetchData();
+  }, []);
   const [data, setData] = useState({});
 
   useEffect(() => {

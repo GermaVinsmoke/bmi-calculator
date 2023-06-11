@@ -1,17 +1,6 @@
 import axios from 'axios';
 
-export const getData = (key) => {
-	if (!localStorage) return;
-
-	try {
-		return JSON.parse(localStorage.getItem(key));
-	} catch (err) {
-		console.error(`Error getting item ${key} from localStorage`, err);
-	}
-};
-
 export const getDataAxios = async (key) => {
-	if (!localStorage) return;
 	if (key === 'lastState') {
 		try {
 			const response = await axios.get('http://localhost:8000/lastState');
@@ -24,8 +13,6 @@ export const getDataAxios = async (key) => {
 	} else if (key === 'data') {
 		try {
 			const response = await axios.get('http://localhost:8000/data');
-			// const data = [response.data];
-			// console.log(data);
 			return response.data;
 		} catch (error) {
 			console.error(`Error getting item ${key} from localStorage`, error);
@@ -41,5 +28,14 @@ export const storeData = (key, item) => {
 		return localStorage.setItem(key, JSON.stringify(item));
 	} catch (err) {
 		console.error(`Error storing item ${key} to localStorage`, err);
+	}
+};
+
+export const storeDataAxios = async (key, item) => {
+	try {
+		const res = await axios.post('http://localhost:8000', item);
+		console.log(res);
+	} catch (error) {
+		console.log(error);
 	}
 };

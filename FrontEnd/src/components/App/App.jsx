@@ -5,7 +5,7 @@ import './App.css';
 import BmiForm from '../BmiForm/BmiForm';
 import Info from '../Info/Info';
 import Bar from '../Bar/Bar';
-import { getData, storeData, getDataAxios } from '../../helpers/localStorage';
+import { storeData, getDataAxios, storeDataAxios } from '../../helpers/localStorage';
 import axios from 'axios';
 
 const App = () => {
@@ -21,13 +21,11 @@ const App = () => {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    if (state.length !== undefined) {
-      storeData('data', state);
-      const date = state.map(obj => obj.date);
-      const bmi = state.map(obj => obj.bmi);
-      let newData = { date, bmi };
-      setData(newData);
-    }
+    storeDataAxios('data', state);
+    const date = state.map(obj => obj.date);
+    const bmi = state.map(obj => obj.bmi);
+    let newData = { date, bmi };
+    setData(newData);
   }, [state]);
 
   const handleChange = async val => {
@@ -48,8 +46,8 @@ const App = () => {
     setState(newState);
   };
 
-  const handleUndo = () => {
-    setState(getData('lastState'));
+  const handleUndo = async () => {
+    setState(await getDataAxios('lastState'));
   };
 
   return (
@@ -85,9 +83,9 @@ const App = () => {
                 )}
             </div>
           </div>
-          {getData('lastState') !== null ? (
+          {getDataAxios('lastState') !== null ? (
             <div className='center'>
-              <button className='calculate-btn' onClick={handleUndo}>
+              <button className='calculate-btn' onClick={async () => await handleUndo()}>
                 Undo
               </button>
             </div>

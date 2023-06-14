@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 async function main() {
   try {
     await mongoose.connect(uri);
-    console.log('Connected to the DB');
+    console.log('Connected to MongoDB');
   } catch (error) {
     console.log(error);
   }

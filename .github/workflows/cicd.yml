@@ -1,4 +1,4 @@
-name: CI/CD Workflow
+name: CI/CD Workflow for react application
 
 on:
  push:

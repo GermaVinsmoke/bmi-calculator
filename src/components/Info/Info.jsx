@@ -6,22 +6,22 @@ const Info = ({ weight, height, id, date, bmi, deleteCard }) => {
     deleteCard(id);
   };
 
-  let color = "#50C878";
-  if (bmi < 18.5) {
-    color = "#87CEEB"
+  let color="#50C878";
+  if (bmi<18.5){
+    color="#87CEEB"
   };
-  if (bmi > 25.0) {
-    color = "#FF8C00"
+  if (bmi>25.0){
+    color="#FF8C00"
   };
-  if (bmi > 30.0) {
-    color = "#F62817"
+  if (bmi>30.0){
+    color="#F62817"
   };
 
   return (
     <div className="col m6 s12">
       <div className="card">
         <div className="card-content">
-          <span className="card-title" data-test="bmi">
+          <span style={{color:color}} className="card-title" data-test="bmi">
             BMI: {bmi}
           </span>
           <div className="card-data">

@@ -6,7 +6,7 @@ const Info = ({ weight, height, id, date, bmi, deleteCard }) => {
     deleteCard(id);
   };
 
-    let color = "#50C878";
+  let color = "#50C878";
   if (bmi < 18.5) {
     color = "#87CEEB"
   };

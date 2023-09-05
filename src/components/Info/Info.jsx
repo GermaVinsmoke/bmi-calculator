@@ -16,7 +16,7 @@ const Info = ({ weight, height, id, date, bmi, deleteCard }) => {
   if (bmi>30.0){
     color="#F62817"
   };
-
+  
   return (
     <div className="col m6 s12">
       <div className="card">

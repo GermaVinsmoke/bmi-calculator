@@ -4,7 +4,7 @@ node_js:
 cache: npm
 
 install:
-  - yarn
+  - npm install
 
 script:
   - npm run test -- --coverage
